@@ -1,0 +1,27 @@
+# Build artifacts
+bin/
+obj/
+
+# Large files
+*.zip
+nul
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.idb
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.ncb
+*.aps
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*~

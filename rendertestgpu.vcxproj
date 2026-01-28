@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A77FF5B3-B6EC-4B19-8F67-BCBC3AC86C4B}</ProjectGuid>
+    <RootNamespace>rendertestgpu</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>rendertestgpu</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+    <TargetName>rendertestgpu</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+    <TargetName>rendertestgpu</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <!-- Main entry point -->
+    <ClCompile Include="main.cpp" />
+    <!-- D3D11 Renderer -->
+    <ClCompile Include="d3d11\renderer_d3d11.cpp" />
+    <!-- D3D12 Renderers -->
+    <ClCompile Include="d3d12\d3d12_globals.cpp" />
+    <ClCompile Include="d3d12\renderer_d3d12.cpp" />
+    <ClCompile Include="d3d12\renderer_d3d12_dxr10.cpp" />
+    <ClCompile Include="d3d12\renderer_d3d12_rt.cpp" />
+    <ClCompile Include="d3d12\renderer_d3d12_pt.cpp" />
+    <ClCompile Include="d3d12\renderer_d3d12_dlss.cpp" />
+    <!-- OpenGL Renderer -->
+    <ClCompile Include="opengl\renderer_opengl.cpp" />
+    <!-- Vulkan Renderer -->
+    <ClCompile Include="vulkan\renderer_vulkan.cpp" />
+    <ClCompile Include="vulkan\renderer_vulkan_rt.cpp" />
+    <ClCompile Include="vulkan\renderer_vulkan_rq.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Common header -->
+    <ClInclude Include="common.h" />
+    <!-- D3D11 headers -->
+    <ClInclude Include="d3d11\renderer_d3d11.h" />
+    <!-- D3D12 headers -->
+    <ClInclude Include="d3d12\renderer_d3d12.h" />
+    <ClInclude Include="d3d12\d3d12_shared.h" />
+    <!-- OpenGL headers -->
+    <ClInclude Include="opengl\renderer_opengl.h" />
+    <!-- Vulkan headers -->
+    <ClInclude Include="vulkan\renderer_vulkan.h" />
+    <ClInclude Include="vulkan\renderer_vulkan_rt.h" />
+    <ClInclude Include="vulkan\vulkan_shaders.h" />
+    <ClInclude Include="vulkan\vulkan_rt_shaders.h" />
+    <ClInclude Include="vulkan\vulkan_rt_spirv.h" />
+    <ClInclude Include="vulkan\renderer_vulkan_rq.h" />
+    <ClInclude Include="vulkan\vulkan_rq_shaders.h" />
+    <!-- Shader headers -->
+    <ClInclude Include="shaders\d3d11_shaders.h" />
+    <ClInclude Include="shaders\d3d12_rt_shaders.h" />
+    <ClInclude Include="shaders\d3d12_pt_shaders.h" />
+    <ClInclude Include="shaders\d3d12_denoise_shaders.h" />
+    <ClInclude Include="shaders\d3d12_dlss_shaders.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

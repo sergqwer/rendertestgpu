@@ -1,0 +1,5 @@
+// Resource file for rendertestgpu
+// DXC DLLs (dxcompiler.dll, dxil.dll) should be placed next to the exe
+
+// Application icon (IDI_ICON1 = 1 is the main app icon)
+1 ICON "kub.ico"
