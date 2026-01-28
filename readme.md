@@ -15,6 +15,7 @@ Multi-API Graphics Renderer demonstrating the same Cornell Box scene rendered wi
 | **OpenGL** | OpenGL 4.x rasterization renderer |
 | **Vulkan** | Vulkan rasterization renderer |
 | **Vulkan + RT** | Vulkan ray tracing (VK_KHR_ray_tracing_pipeline) |
+| **Vulkan + RayQuery** | Vulkan inline ray tracing (VK_KHR_ray_query) |
 
 ## Screenshots
 
@@ -38,9 +39,9 @@ Multi-API Graphics Renderer demonstrating the same Cornell Box scene rendered wi
 |:----------------------:|:--------------------------------------:|
 | ![PT DXR 1.1](images/d3d12_PT_DXR_1.1.jpg) | ![PT + DLSS RR](images/d3d12_PT_DLSS_RR.jpg) |
 
-| Vulkan RT (VK_KHR_ray_tracing_pipeline) |
-|:---------------------------------------:|
-| ![Vulkan RT](images/Vulkan_rt_ray_tracing_pipeline.jpg) |
+| Vulkan RT (VK_KHR_ray_tracing_pipeline) | Vulkan RayQuery (VK_KHR_ray_query) |
+|:---------------------------------------:|:----------------------------------:|
+| ![Vulkan RT](images/Vulkan_rt_ray_tracing_pipeline.jpg) | ![Vulkan RQ](images/Vulkan_rt_VK_KHR_ray_query.jpg) |
 
 ## Building
 
@@ -93,6 +94,7 @@ rendertestgpu.exe --help
 | `opengl` | `gl` | OpenGL |
 | `vulkan` | `vk` | Vulkan |
 | `vulkan_rt` | `vk_rt` | Vulkan + Ray Tracing |
+| `vulkan_rq` | `vk_rq` | Vulkan + RayQuery |
 
 ### Examples
 
@@ -130,10 +132,12 @@ rendertestgpu/
 │   └── renderer_opengl.cpp     # OpenGL implementation
 ├── vulkan/
 │   ├── renderer_vulkan.cpp     # Vulkan rasterization
-│   ├── renderer_vulkan_rt.cpp  # Vulkan ray tracing
+│   ├── renderer_vulkan_rt.cpp  # Vulkan ray tracing (VK_KHR_ray_tracing_pipeline)
+│   ├── renderer_vulkan_rq.cpp  # Vulkan RayQuery (VK_KHR_ray_query)
 │   ├── vulkan_shaders.h        # Pre-compiled SPIR-V (rasterization)
 │   ├── vulkan_rt_shaders.h     # GLSL source for RT shaders
-│   └── vulkan_rt_spirv.h       # Pre-compiled SPIR-V (ray tracing)
+│   ├── vulkan_rt_spirv.h       # Pre-compiled SPIR-V (ray tracing)
+│   └── vulkan_rq_shaders.h     # Pre-compiled SPIR-V (RayQuery compute)
 └── bin/Release/
     └── rendertestgpu.exe       # Output executable
 ```
